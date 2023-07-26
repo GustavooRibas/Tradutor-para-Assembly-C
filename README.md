@@ -19,7 +19,7 @@
 
  - [*Gustavo Rodrigues Ribeiro*](https://github.com/GustavooRibas)
  - [*Luca Mascarenhas Plaster*](https://github.com/LucaPlaster)
- - [*Marcos Reges Mota*(Regittos)](https://github.com/Regittos)
+ - [*Rafael de Souza Porto*](https://github.com/Rafaelsporto)
 
 ## Descrição do Projeto
 
