@@ -104,56 +104,88 @@ uma constante. Ela segue a mesma lógica de C, onde zero (0) é falso e qualquer
 ```
 <prog>    →    <func>
           |    <func> <prog>
+
 <func>    →    <header> <defs> <cmds> <ret> '\n' 'end' '\n'
+
 <header>  →    'function' <fname> <params> '\n'
+
 <fname>   →    'f'<num>
+
 <params>  →    ε
           |    <param> <params>
+
 <param>   →    <parint>
           |    <pararr>
+
 <parint>  →    'pi'<num>
+
 <pararr>  →    'pa'<num>
+
 <defs>    →    'def' '\n' <vardef> 'enddef' '\n'
+
 <vardef>  →    'var' <varint> '\n'
           |    'vet' <vararr> 'size' <const> '\n'
+
 <varint>  →    'vi'<num>
           |    'ri'<num>
+
 <vararr>  →    'va'<num>
+
 <const>   →    'ci'<snum>
+
 <cmds>    →    <cmd> '\n'
           |    <cmd> '\n' <cmds>
+
 <cmd>     →    <attr>
           |    <arrayget>
           |    <arrayset>
           |    <if>
+
 <attr>    →    <varint> '=' <expr>
+
 <expr>    →    <valint>
           |    <oper>
           |    <call>
+
 <valint>  →    <varint>
           |    <parint>
           |    <const>
+
 <oper>    →    <valint> <op> <valint>
+
 <op>      →    '+' | '-' | '*' | '/'
+
 <call>    →    'call' <fname> <args>
+
 <args>    →    ε
           |    <arg> <args>
+
 <arg>     →    <valint>
           |    <array>
+
 <array>   →    <vararr>
           |    <pararr>
+
 <arrayget> →   'get' <array> 'index' <const> 'to' <varint>
+
 <arrayset> →   'set' <array> 'index' <const> 'with' <valint>
+
 <if>      →    'if' <valint> <oprel> <valint> '\n' <body> '\n' 'endif'
+
 <oprel>   →    'eq' | 'ne' | 'lt' | 'le' | 'gt' | 'ge'
+
 <body>    →    <attr>
           |    <arrayget>
           |    <arrayset>
           |    <ret>
+
 <ret>     →    'return' <valint>
+
 <num>     →    <digit>
           |    <digit> <num>
+
 <snum>    →    <num>
           |    '-'<num>
+
 <digit>   →    '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7'| '8' | '9'
 ```
