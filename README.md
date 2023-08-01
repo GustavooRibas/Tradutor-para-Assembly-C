@@ -102,90 +102,95 @@ uma constante. Ela segue a mesma lógica de C, onde zero (0) é falso e qualquer
 
 ## BNF da Linguagem
 ```
-<prog>    →    <func>
-          |    <func> <prog>
+<prog>          →      <func>
+                |      <func> <prog>
 
-<func>    →    <header> <defs> <cmds> <ret> '\n' 'end' '\n'
+<func>          →      <header> <defs> <cmds> <ret> '\n' 'end' '\n'
 
-<header>  →    'function' <fname> <params> '\n'
+<header>        →      'function' <fname> <params> '\n'
 
-<fname>   →    'f'<num>
+<fname>         →      'f'<num>
 
-<params>  →    ε
-          |    <param> <params>
+<params>        →      ε
+                |      <param> <params>
 
-<param>   →    <parint>
-          |    <pararr>
+<param>         →      <parint>
+                |      <pararr>
 
-<parint>  →    'pi'<num>
+<parint>        →      'pi'<num>
 
-<pararr>  →    'pa'<num>
+<pararr>        →      'pa'<num>
 
-<defs>    →    'def' '\n' <vardef> 'enddef' '\n'
+<defs>          →      'def' '\n' <vardef> 'enddef' '\n'
 
-<vardef>  →    'var' <varint> '\n'
-          |    'vet' <vararr> 'size' <const> '\n'
+<vardef>        →      'var' <varint> '\n'
+                |      'reg' <regint> '\n'
+                |      'vet' <vararr> 'size' <const> '\n'
 
-<varint>  →    'vi'<num>
-          |    'ri'<num>
+<varint>        →      'vi'<num>
 
-<vararr>  →    'va'<num>
+<regint>        →      'vr'<num>
 
-<const>   →    'ci'<snum>
+<vararr>        →      'va'<num>
 
-<cmds>    →    <cmd> '\n'
-          |    <cmd> '\n' <cmds>
+<const>         →      'ci'<snum>
 
-<cmd>     →    <attr>
-          |    <arrayget>
-          |    <arrayset>
-          |    <if>
+<cmds>          →      <cmd> '\n'
+                |      <cmd> '\n' <cmds>
 
-<attr>    →    <varint> '=' <expr>
+<cmd>           →      <attr>
+                |      <arrayget>
+                |      <arrayset>
+                |      <if>
 
-<expr>    →    <valint>
-          |    <oper>
-          |    <call>
+<attr>          →      <varint> '=' <expr>
+                |      <regint> '=' <expr>
 
-<valint>  →    <varint>
-          |    <parint>
-          |    <const>
+<expr>          →      <valint>
+                |      <oper>
+                |      <call>
 
-<oper>    →    <valint> <op> <valint>
+<valint>        →      <varint>
+                |      <regint>
+                |      <parint>
+                |      <const>
 
-<op>      →    '+' | '-' | '*' | '/'
+<oper>          →      <valint> <op> <valint>
 
-<call>    →    'call' <fname> <args>
+<op>            →      '+' | '-' | '*' | '/'
 
-<args>    →    ε
-          |    <arg> <args>
+<call>          →      'call' <fname> <args>
 
-<arg>     →    <valint>
-          |    <array>
+<args>          →      ε
+                |      <arg> <args>
 
-<array>   →    <vararr>
-          |    <pararr>
+<arg>           →      <valint>
+                |      <array>
 
-<arrayget> →   'get' <array> 'index' <const> 'to' <varint>
+<array>         →      <vararr>
+                |      <pararr>
 
-<arrayset> →   'set' <array> 'index' <const> 'with' <valint>
+<arrayget>      →      'get' <array> 'index' <const> 'to' <varint>
+                |      'get' <array> 'index' <const> 'to' <regint>
 
-<if>      →    'if' <valint> <oprel> <valint> '\n' <body> '\n' 'endif'
+<arrayset>      →      'set' <array> 'index' <const> 'with' <valint>
 
-<oprel>   →    'eq' | 'ne' | 'lt' | 'le' | 'gt' | 'ge'
+<if>            →      'if' <valint> <oprel> <valint> '\n' <body> '\n' 'endif'
 
-<body>    →    <attr>
-          |    <arrayget>
-          |    <arrayset>
-          |    <ret>
+<oprel>         →      'eq' | 'ne' | 'lt' | 'le' | 'gt' | 'ge'
 
-<ret>     →    'return' <valint>
+<body>          →      <attr>
+                |      <arrayget>
+                |      <arrayset>
+                |      <ret>
 
-<num>     →    <digit>
-          |    <digit> <num>
+<ret>           →      'return' <valint>
 
-<snum>    →    <num>
-          |    '-'<num>
+<num>           →      <digit>
+                |      <digit> <num>
 
-<digit>   →    '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7'| '8' | '9'
+<snum>          →      <num>
+                |      '-'<num>
+
+<digit>         →      '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7'| '8' | '9'
 ```
