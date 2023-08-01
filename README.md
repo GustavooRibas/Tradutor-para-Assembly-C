@@ -108,12 +108,12 @@ set *array* index *índice* with *valor*
 O condicional if não possui else. A expressão só pode comparar variáveis inteiras (pilha ou
 registrador), parâmetros inteiros ou constantes inteiras. Os operadores relacionais são:
    
-   - ##### eq: igual
-   - ##### ne: não igual
-   - ##### lt: menor
-   - ##### le: menor igual
-   - ##### gt: maior
-   - ##### ge: maior igual
+   -  eq: igual
+   -  ne: não igual
+   -  lt: menor
+   -  le: menor igual
+   -  gt: maior
+   -  ge: maior igual
 
 O formato do if é:
 ```
