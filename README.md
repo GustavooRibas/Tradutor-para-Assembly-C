@@ -71,9 +71,13 @@ depois de zero a três parâmetros. O nome da função segue o padrão fN, onde 
 começando de 1 (1, 2, 3, etc.).
 
 ### Variáveis locais
-Uma função pode ter até cinco variáveis locais, as quais podem ser variáveis inteiras (int) ou
-arrays de inteiros (int[]). Tanto as variáveis inteiras ou os arrays inteiros devem ser alocados na
+Uma função pode ter no máximo quatro variáveis inteiras de pilha (int), quatro variáveis
+inteiras de registrador (int) ou quatro arrays de inteiros (int[]) - totalizando, no máximo, doze
+variáveis locais. Tanto as variáveis inteiras de pilha ou os arrays inteiros devem ser alocados na
 pilha e não possuem valor inicial (têm “lixo” de memória).
+
+No caso de variáveis locais de registrador, deve-se alocar um registrador para cada variável.
+Esses registradores devem ser efetivamente utilizado no corpo da função.
 
 ### Corpo da função
 O corpo da função é um conjunto de comandos que inicia depois da definição das variáveis.
@@ -85,20 +89,31 @@ Uma atribuição de variável inteira pode ser uma atribuição simples, uma exp
 retorno de uma chamada de função.
 
 - #### Chamada da função
-As chamadas de função são feitas utilizando a palavra-chave call seguida do nome da
-função. Depois do nome da função são passados os parâmetros para função a ser chamada (até três
-parâmetros).
+As chamadas de função são permitidas na atribuição e utiliza a palavra-chave call seguida do
+nome da função. Depois do nome da função são passados os parâmetros para função a ser chamada
+(até três parâmetros).
 
 - #### Acessso ao array
 A recuperação de um valor de um array utiliza o comando get, no seguinte formato:
 ```
 get **array** index índice to destino
-``` 
+```
+
+Para modificar uma posição de um array, utiliza-se o comando set, no seguinte formato:
+```
+set **array** index índice with valor
+```
 
 - #### Condicional
-O condicional if possui um único valor de teste que pode ser uma variável, um parâmetro ou
-uma constante. Ela segue a mesma lógica de C, onde zero (0) é falso e qualquer valor não zero
-(positivo ou negativo) é verdadeiro. O corpo do condicional possui apenas um único comando.
+O condicional if não possui else. A expressão só pode comparar variáveis inteiras (pilha ou
+registrador), parâmetros inteiros ou constantes inteiras. Os operadores relacionais são:
+   
+   • eq: igual
+   • ne: não igual
+   • lt: menor
+   • le: menor igual
+   • gt: maior
+   • ge: maior igual
 
 ## BNF da Linguagem
 ```
