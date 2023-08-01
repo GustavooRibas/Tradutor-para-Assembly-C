@@ -96,24 +96,40 @@ nome da função. Depois do nome da função são passados os parâmetros para f
 - #### Acessso ao array
 A recuperação de um valor de um array utiliza o comando get, no seguinte formato:
 ```
-get **array** index índice to destino
+get *array* index *índice* to *destino*
 ```
 
 Para modificar uma posição de um array, utiliza-se o comando set, no seguinte formato:
 ```
-set **array** index índice with valor
+set *array* index *índice* with *valor*
 ```
 
 - #### Condicional
 O condicional if não possui else. A expressão só pode comparar variáveis inteiras (pilha ou
 registrador), parâmetros inteiros ou constantes inteiras. Os operadores relacionais são:
    
-   • eq: igual
-   • ne: não igual
-   • lt: menor
-   • le: menor igual
-   • gt: maior
-   • ge: maior igual
+   - ##### eq: igual
+   - ##### ne: não igual
+   - ##### lt: menor
+   - ##### le: menor igual
+   - ##### gt: maior
+   - ##### ge: maior igual
+
+O formato do if é:
+```
+if *condição*
+*comando*
+endif
+```
+
+- #### Retorno da Função
+O comando return só poderá aparecer como último comando do corpo da função ou no
+corpo do if. Toda função terá obrigatoriamente um return como último comando do corpo.
+
+O formato do return é:
+```
+return *valor*
+```
 
 ## BNF da Linguagem
 ```
