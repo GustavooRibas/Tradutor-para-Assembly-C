@@ -39,7 +39,7 @@ criar um arquivo com a linguagem e utilizar o redirecionamento para testar:
 ./tradutor < prog.blp
 ```
 * No nosso caso a forma com que o grupo está executando
-no windows :
+no windows (porém pode ser executado da forma acima sem problemas):
 ```
 tradutor <testes/prog.blp >testes/out.S
 ```
