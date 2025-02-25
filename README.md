@@ -1,4 +1,4 @@
-<h1 align="center"> Tabalho de Software Básico </h1>
+<h1 align="center"> Tradutor de uma Linguagem Simples (chamada de BPL – Bruno’s Programming Language) para Assembly </h1>
 <p align="center"><img src="images/ufg.png" alt="Logo UFG" height="170" width="240"></p>
 
 
